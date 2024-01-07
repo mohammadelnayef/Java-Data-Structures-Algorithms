@@ -9,9 +9,10 @@ public class Main {
         mohaList.addLast(20);
         mohaList.addLast(30);
 
-        var mohListArray = mohaList.toArray();
+        var mohListArray = mohaList.reverse();
         System.out.println(Arrays.toString(mohListArray));
-        
+
+
     }
 }
 

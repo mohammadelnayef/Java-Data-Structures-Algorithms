@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class MohaLinkedList {
@@ -131,6 +132,32 @@ public class MohaLinkedList {
     public int size()
     {
         return size;
+    }
+
+    // reverse
+    public int[] reverse()
+    {
+        // initial [ head = 10 -> 20 -> 30 = tail]
+        // reversed [ tail = 10 <-- 20 < --- 30 = head]
+
+        //   0  , 1 , 2
+        // [ 10, 20, 30 ]
+
+        // i = 0
+        // tmpArray[0] = initialArray[3 -1 - 0]; -> initialArray[2] // tmpArray[30]
+        // i = 1
+        // tmpArray[1] = initialArray[3 - 1 -1] -> initialArray[1] // tmpArray[30,20]
+        // i = 2
+        // tmpArray[2] = initialArray[3 -1 -2] -> initialArray[0] // tmpArray[30,20,10]
+
+        int[] initialArray = toArray();
+        int[] tmpArray = new int[size];
+
+        for( int i = 0; i < size; i++){
+            tmpArray[i] = initialArray[size -1 - i];
+        }
+
+        return tmpArray;
     }
 
     public int[] toArray()
