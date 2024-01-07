@@ -1,10 +1,21 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
 
-        MohArray numbers = new MohArray(3);
-        numbers.insert(10);
-        numbers.insert(20);
-        numbers.insert(30);
+        LinkedList list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addFirst(100);
+        list.removeLast();
+        list.removeFirst();
+        System.out.println(list.contains(10));
+        System.out.println(list.indexOf(10));
+        System.out.println(list.size());
+        var array = list.toArray();
+        System.out.println(Arrays.toString(array));
     }
 }
 
