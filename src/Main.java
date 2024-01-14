@@ -8,10 +8,11 @@ public class Main {
         mohaList.addLast(10);
         mohaList.addLast(20);
         mohaList.addLast(30);
+        mohaList.addLast(40);
 
-        var mohListArray = mohaList.reverse();
+        mohaList.reverse();
+        var mohListArray = mohaList.toArray();
         System.out.println(Arrays.toString(mohListArray));
-
 
     }
 }

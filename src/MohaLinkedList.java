@@ -135,29 +135,36 @@ public class MohaLinkedList {
     }
 
     // reverse
-    public int[] reverse()
+    public void reverse()
     {
-        // initial [ head = 10 -> 20 -> 30 = tail]
-        // reversed [ tail = 10 <-- 20 < --- 30 = head]
+        // In order to reverse a linked list, we have to flip the direction of the node connections
+        // and then update the Head and Tail of the list once the reversal is completed.
 
-        //   0  , 1 , 2
-        // [ 10, 20, 30 ]
+        // Since we begin with the first element in the list, it has no previous node, so we set previousNode to null
+        // After that we set the currentNode to be the first node, since this is the Node we will start with.
+        // After that we will declare a temp Node variable that will be used to save the current's node next.
+        // (We do this because we will lose the reference once we change the direction of the connection [from next to previous])
+        Node previousNode = null;
+        Node currentNode = first;
+        Node tmpNext;
 
-        // i = 0
-        // tmpArray[0] = initialArray[3 -1 - 0]; -> initialArray[2] // tmpArray[30]
-        // i = 1
-        // tmpArray[1] = initialArray[3 - 1 -1] -> initialArray[1] // tmpArray[30,20]
-        // i = 2
-        // tmpArray[2] = initialArray[3 -1 -2] -> initialArray[0] // tmpArray[30,20,10]
+        // We check if the current node is not null, if not, we start traversing the list
+        // We first save the current node next node to a temp variable
+        // Then we reverse the direction of the connection by setting the currentNode next node to the previous node.
+        // Then we set the previous node to be the current node.
+        // And finally we set the current node to be the temp variable that we defined above.
 
-        int[] initialArray = toArray();
-        int[] tmpArray = new int[size];
-
-        for( int i = 0; i < size; i++){
-            tmpArray[i] = initialArray[size -1 - i];
+        while(currentNode != null){
+            tmpNext = currentNode.next;
+            currentNode.next = previousNode;
+            previousNode = currentNode;
+            currentNode = tmpNext;
         }
 
-        return tmpArray;
+        // After we finished reversing the list, we have to switch the head and tail between them.
+        Node tmpLast = last;
+        last = first;
+        first = tmpLast;
     }
 
     public int[] toArray()
