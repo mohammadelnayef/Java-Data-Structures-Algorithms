@@ -167,6 +167,32 @@ public class MohaLinkedList {
         first = tmpLast;
     }
 
+    // K th node from the end
+    public int getKthFromTheEnd(int kth)
+    {
+        if(isEmpty()){
+            throw new IllegalStateException();
+        }
+
+        Node nodeA = first;
+        Node nodeB = first;
+
+        for(int i = 0; i < kth -1; i++){
+            nodeB = nodeB.next;
+
+            if(nodeB == null){
+                throw new IllegalArgumentException();
+            }
+        }
+
+        while(nodeB != last) {
+            nodeA = nodeA.next;
+            nodeB = nodeB.next;
+        }
+
+        return nodeA.value;
+    }
+
     public int[] toArray()
     {
         // Create the initial empty array with the size of the current Linked List.

@@ -9,10 +9,10 @@ public class Main {
         mohaList.addLast(20);
         mohaList.addLast(30);
         mohaList.addLast(40);
+        mohaList.addLast(50);
+        mohaList.addLast(60);
 
-        mohaList.reverse();
-        var mohListArray = mohaList.toArray();
-        System.out.println(Arrays.toString(mohListArray));
+        System.out.println(mohaList.getKthFromTheEnd(4));
 
     }
 }
