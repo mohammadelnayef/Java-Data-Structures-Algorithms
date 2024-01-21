@@ -3,6 +3,10 @@ public class MohStack {
 
     public String reverseString(String input)
     {
+        if(input == null){
+             throw new IllegalArgumentException();
+        }
+
         // We create a stack
         Stack<Character> stack = new Stack<>();
 
