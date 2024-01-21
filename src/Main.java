@@ -1,19 +1,23 @@
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
 
-        var mohaList = new MohaLinkedList();
-        mohaList.addLast(10);
-        mohaList.addLast(20);
-        mohaList.addLast(30);
-        mohaList.addLast(40);
-        mohaList.addLast(50);
-        mohaList.addLast(60);
+        Stack<Integer> stack = new Stack<>();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
 
-        System.out.println(mohaList.getKthFromTheEnd(4));
+        var mohStack = new MohStack();
+        var result = mohStack.reverseString("sony");
+        System.out.println(result);
 
+//        System.out.println(stack);
+//
+//        var top = stack.pop();
+//        System.out.println(top);
+//
+//        System.out.println(stack);
     }
 }
 
