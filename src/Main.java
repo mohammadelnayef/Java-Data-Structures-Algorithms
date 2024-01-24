@@ -4,14 +4,13 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 
-        var mohArrayStack = new MohArrayStack();
-        mohArrayStack.push(1);
-        mohArrayStack.push(2);
-        mohArrayStack.push(3);
-        mohArrayStack.push(4);
-        var result = mohArrayStack.peek();
-        System.out.println(result);
-        System.out.println(Arrays.toString(mohArrayStack.getItems()));
+        var mohaLinkedListStack = new MohaLinkedListStack();
+        mohaLinkedListStack.push(10);
+        mohaLinkedListStack.push(20);
+        mohaLinkedListStack.push(30);
+        var result = mohaLinkedListStack.peek();
+        System.out.println(mohaLinkedListStack.isEmpty());
+
     }
 }
 

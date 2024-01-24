@@ -11,6 +11,10 @@ public class MohaLinkedList {
         {
             this.value = value;
         }
+
+        public int getValue() {
+            return value;
+        }
     }
 
     private Node first;
@@ -231,6 +235,22 @@ public class MohaLinkedList {
             currentNode = currentNode.next;
         }
         return null;
+    }
+
+    public int getHead()
+    {
+        if(first == null){
+           throw new IllegalStateException();
+        }
+        return first.getValue();
+    }
+
+    public int getTail()
+    {
+        if(last == null){
+            throw new IllegalStateException();
+        }
+        return last.getValue();
     }
 
 }
