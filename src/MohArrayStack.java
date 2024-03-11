@@ -1,70 +1,49 @@
 import java.sql.Array;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MohArrayStack {
 
-    private int[] items;
-    private int numberOfItems = 0;
+    private int[] items = new int[5];
+    private int count = 0;
 
-    public MohArrayStack()
-    {
-        items = new int[1];
-    }
-
-    //push
     public void push(int item)
     {
-        if(numberOfItems == items.length){
-            int[] tmpArray = new int[items.length + 1];
-
-            for(int i = 0; i < items.length; i++){
-                tmpArray[i] = items[i];
-            }
-            tmpArray[items.length] = item;
-            items = tmpArray;
+        if(count == items.length){
+            throw new StackOverflowError();
         }
-        else {
-            items[numberOfItems] = item;
-        }
-        numberOfItems++;
+        items[count] = item;
+        count++;
     }
 
-    //pop
     public int pop()
     {
-        if(numberOfItems == 0){
-            throw new NoSuchElementException();
+        if(count == 0){
+            throw new IllegalStateException();
         }
-        int tmp = items[numberOfItems -1];
-        int[] tmpArray = new int[items.length -1];
-
-        for(int i = 0; i < items.length -1 ; i++){
-            tmpArray[i] = items[i];
-        }
-        items = tmpArray;
-        numberOfItems--;
-        return tmp;
+        int currentCount = count;
+        count--;
+        return items[currentCount];
     }
 
-    //peek
     public int peek()
     {
-        if(numberOfItems == 0){
-            throw new NoSuchElementException();
+        if(count == 0){
+            throw new IllegalStateException();
         }
-        return items[numberOfItems -1];
+        return items[count-1];
     }
 
-    //isEmpty
     public boolean isEmpty()
     {
-        return numberOfItems == 0;
+        return count == 0;
     }
 
-    public int[] getItems()
+    @Override
+    public String toString()
     {
-        return items;
+        var content = Arrays.copyOfRange(items,0, count);
+        return Arrays.toString(content);
     }
-
 }
 
