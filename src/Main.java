@@ -6,11 +6,16 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 
-        MohArrayStack stack = new MohArrayStack();
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        System.out.println(stack.peek());
+        var mohQueue = new MohaArrayQueue(6);
+        mohQueue.enqueue(10);
+        mohQueue.enqueue(20);
+        mohQueue.enqueue(30);
+        mohQueue.enqueue(40);
+        mohQueue.enqueue(50);
+        mohQueue.enqueue(60);
+        System.out.println("Is Empty: " + mohQueue.isEmpty());
+        System.out.println("Is Full: " + mohQueue.isFull());
+        mohQueue.print();
     }
 }
 

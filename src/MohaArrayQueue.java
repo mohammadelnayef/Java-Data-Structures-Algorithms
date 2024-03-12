@@ -6,44 +6,56 @@ public class MohaArrayQueue {
     private int front = 0;
     private int rear = 0;
 
-    public MohaArrayQueue()
+    public MohaArrayQueue(int capacity)
     {
-        items = new int[5];
+        items = new int[capacity];
     }
 
     // enqueue
     public void enqueue(int item)
     {
-        items[front] = item;
-        front++;
+        if(items.length == rear){
+            throw new IllegalStateException();
+        }
+        if(front == 0 && rear == 0){
+            items[front] = item;
+            rear++;
+            return;
+        }
+
+        items[rear] = item;
         rear++;
     }
     // dequeue
     public void dequeue()
     {
-
+        if(front == rear){
+            throw new IllegalStateException();
+        }
+        front++;
     }
 
     // peek
     public int peek()
     {
-        return 0;
+        return items[front];
     }
 
     // isEmpty
     public boolean isEmpty()
     {
-        return true;
+        return front == rear ;
     }
 
     // isFull
     public boolean isFull()
     {
-        return true;
+        return rear == items.length;
     }
 
     public void print()
     {
-        System.out.println(Arrays.toString(items));
+        var tmpArray = Arrays.copyOfRange(items, front, rear);
+        System.out.println(Arrays.toString(tmpArray));
     }
 }
