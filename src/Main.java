@@ -1,22 +1,17 @@
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        MohPriorityQueueArray pqueue = new MohPriorityQueueArray();
-        pqueue.add(10);
-        pqueue.add(5);
-        pqueue.add(20);
-        pqueue.add(7);
+        MohHash mohMap = new MohHash();
+        var firstNonRepeatableChar = mohMap.findFirstNonRepeatedCharacter("a green apple");
+        System.out.println(firstNonRepeatableChar);
 
-        System.out.println(pqueue);
+        var firstNonRepeatableChar2 = mohMap.findFirstNonRepeatedCharacter("aaaa");
+        System.out.println(firstNonRepeatableChar2);
 
-        while(!pqueue.isEmpty()){
-            System.out.println(pqueue.remove());
-        }
+        var firstNonRepeatableChar3 = mohMap.findFirstNonRepeatedCharacter("");
+        System.out.println(firstNonRepeatableChar3);
 
     }
 }
