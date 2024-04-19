@@ -3,13 +3,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        HashTable table = new HashTable();
-        table.put(6,"A");
-        table.put(8, "B");
-        table.put(11, "C");
-        table.put(6, "A+");
-        table.remove(60);
-        System.out.println(table.get(10));
+        MohBinaryTree tree = new MohBinaryTree();
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(15);
+        tree.insert(7);
+        tree.insert(8);
+        tree.insert(4);
+        tree.insert(17);
+
+        System.out.println(tree.find(100));
+
     }
 }
 
