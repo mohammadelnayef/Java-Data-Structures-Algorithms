@@ -1,5 +1,4 @@
-import java.sql.SQLOutput;
-import java.util.Arrays;
+package Array;
 
 public class MohArray {
 

@@ -1,6 +1,6 @@
-import java.sql.Array;
+package Stack;
+
 import java.util.Arrays;
-import java.util.NoSuchElementException;
 
 public class MohArrayStack {
 

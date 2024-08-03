@@ -1,3 +1,5 @@
+package BinaryTree;
+
 public class MohBinaryTree {
 
     private Node root;

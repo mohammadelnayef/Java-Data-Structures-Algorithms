@@ -1,3 +1,5 @@
+package HashTable;
+
 import java.util.LinkedList;
 
 public class MohHashClass {

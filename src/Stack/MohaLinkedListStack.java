@@ -1,3 +1,6 @@
+package Stack;
+
+import LinkedList.MohaLinkedList;
 
 public class MohaLinkedListStack {
 
