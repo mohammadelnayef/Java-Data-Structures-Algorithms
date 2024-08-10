@@ -91,4 +91,60 @@ public class Tree {
         // If we got to this point, it means that we could not find the value in the BST.
         return false;
     }
+
+    public void traversePreOrder()
+    {
+        traversePreOrder(root);
+    }
+
+    private void traversePreOrder(Node root)
+    {
+        if(root == null){
+            return;
+        }
+        // visit root, print the value
+        System.out.println(root.value);
+        // then visit left
+        traversePreOrder(root.leftChild);
+        // then visit right
+        traversePreOrder(root.rightChild);
+    }
+
+    public void traverseInOrder()
+    {
+        traverseInOrder(root);
+    }
+
+    private void traverseInOrder(Node root)
+    {
+        if(root == null){
+            return;
+        }
+
+        // left
+        traverseInOrder(root.leftChild);
+        // root
+        System.out.println(root.value);
+        // right
+        traverseInOrder(root.rightChild);
+    }
+
+    public void traversePostOrder()
+    {
+        traversePostOrder(root);
+    }
+
+    private void traversePostOrder(Node root)
+    {
+        if(root == null){
+            return;
+        }
+
+        //left
+        traversePostOrder(root.leftChild);
+        //right
+        traversePostOrder(root.rightChild);
+        //root
+        System.out.println(root.value);
+    }
 }
