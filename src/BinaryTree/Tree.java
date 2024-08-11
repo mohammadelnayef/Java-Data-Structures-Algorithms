@@ -208,4 +208,24 @@ public class Tree {
         //One node is null the other is not, tree is not equal
         return false;
     }
+
+    public boolean isBinarySearchTree()
+    {
+        return isBinarySearchTree(root,Integer.MIN_VALUE, Integer.MAX_VALUE );
+    }
+
+    private boolean isBinarySearchTree(Node root, int minValue, int maxValue)
+    {
+        if(root == null){
+            return true;
+        }
+
+        if(root.value < minValue || root.value > maxValue){
+            return false;
+        }
+
+        return
+            isBinarySearchTree(root.leftChild, minValue, root.value -1)
+            && isBinarySearchTree(root.rightChild, root.value + 1, maxValue);
+    }
 }
