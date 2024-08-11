@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.ArrayList;
+
 public class Tree {
 
     // Node class to be used in the Binary Search Tree
@@ -211,6 +213,7 @@ public class Tree {
 
     public boolean isBinarySearchTree()
     {
+        //Since we start from the root, there is no constraint, so we can have any min and max.
         return isBinarySearchTree(root,Integer.MIN_VALUE, Integer.MAX_VALUE );
     }
 
@@ -227,5 +230,36 @@ public class Tree {
         return
             isBinarySearchTree(root.leftChild, minValue, root.value -1)
             && isBinarySearchTree(root.rightChild, root.value + 1, maxValue);
+    }
+
+    public ArrayList<Integer> getNodesAtDistance(int distance)
+    {
+        var list = new ArrayList<Integer>();
+        getNodesAtDistance(root,distance,list);
+        return list;
+    }
+
+    private void getNodesAtDistance(Node root, int distance, ArrayList<Integer> list)
+    {
+        if(root == null){
+            return;
+        }
+
+        if(distance == 0){
+            list.add(root.value);
+            return;
+        }
+
+        getNodesAtDistance(root.leftChild, distance -1,list);
+        getNodesAtDistance(root.rightChild, distance -1, list);
+    }
+
+    public void traverseLevelOrder()
+    {
+        for(var i = 0; i <= height(); i++){
+            for (var value :  getNodesAtDistance(i)){
+                System.out.println(value);
+            }
+        }
     }
 }
