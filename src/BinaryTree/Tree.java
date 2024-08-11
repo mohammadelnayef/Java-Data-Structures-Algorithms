@@ -185,4 +185,27 @@ public class Tree {
 
         return Math.min(root.value, Math.min(left,right));
     }
+
+    public boolean equals(Tree other)
+    {
+        return equals(root, other.root);
+    }
+
+    private boolean equals(Node first, Node second)
+    {
+        //If both nodes are equal, we exit and return true.
+        if(first == null && second == null){
+            return true;
+        }
+        // If both nodes are not null, we continue with the traversal
+        if(first != null && second != null){
+            // preorder, we first check root, then left , then right.
+            return first.value == second.value
+                    && equals(first.leftChild, second.leftChild)
+                    && equals(first.rightChild, second.rightChild);
+        }
+
+        //One node is null the other is not, tree is not equal
+        return false;
+    }
 }
