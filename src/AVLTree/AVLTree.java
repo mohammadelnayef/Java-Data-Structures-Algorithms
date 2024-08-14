@@ -5,6 +5,7 @@ public class AVLTree {
     private AVLNode root;
 
     private class AVLNode {
+        private int height;
         private int value;
         private AVLNode leftChild;
         private AVLNode rightChild;
@@ -35,6 +36,17 @@ public class AVLTree {
         else{
             root.rightChild = insert(root.rightChild, number);
         }
+
+        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+
         return root;
+    }
+
+    private int height(AVLNode node)
+    {
+        if(node == null){
+            return -1;
+        }
+        return node.height;
     }
 }
