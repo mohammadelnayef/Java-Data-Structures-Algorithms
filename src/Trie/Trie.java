@@ -1,16 +1,33 @@
 package Trie;
 
+import java.util.HashMap;
+
 public class Trie {
 
     public static int ALPHABET_SIZE = 26;
 
     private class Node {
         private char value;
-        private Node[] children = new Node[ALPHABET_SIZE];
+        private HashMap<Character, Node> children = new HashMap<>();
         private boolean isEndOfWord;
 
         public Node(char value) {
             this.value = value;
+        }
+
+        public boolean hasChild(char ch)
+        {
+            return children.containsKey(ch);
+        }
+
+        public void addChild(char ch)
+        {
+            children.put(ch, new Node(ch));
+        }
+
+        public Node getChild(char ch)
+        {
+            return children.get(ch);
         }
 
         @Override
@@ -25,11 +42,10 @@ public class Trie {
     {
         var current = root;
         for(var ch : word.toCharArray()){
-            var index = ch - 'a';
-            if(current.children[index] == null){
-                current.children[index] = new Node(ch);
+            if(!current.hasChild(ch)){
+                current.addChild(ch);
             }
-            current = current.children[index];
+            current = current.getChild(ch);
         }
         current.isEndOfWord = true;
     }
