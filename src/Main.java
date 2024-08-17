@@ -4,10 +4,9 @@ import Trie.Trie;
 public class Main {
     public static void main(String[] args) {
         Trie trie = new Trie();
-        trie.insert("cat");
-        trie.insert("can");
+        trie.insert("canada");
 
-        System.out.println("done");
+        System.out.println(trie.contains("canada"));
     }
 }
 
