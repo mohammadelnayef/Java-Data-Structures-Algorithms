@@ -174,4 +174,40 @@ public class Graph {
         }
     }
 
+//    Initialize: Start with the root node, add it to the queue, and mark it as unvisited.
+//    Process Nodes:
+//    While the queue is not empty, remove the node at the front of the queue and process it.
+//    Visit the node, print it, and mark it as visited.
+//    Add all unvisited neighbors of the current node to the back of the queue.
+//    Repeat Until Queue is Empty: Continue this process until all reachable nodes have been visited
+    public void traverseBreadthFirst(String root)
+    {
+        var node = nodes.get(root);
+        if(node == null){
+            return;
+        }
+
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new ArrayDeque<>();
+
+        queue.add(node);
+
+        while (!queue.isEmpty()){
+            var current = queue.remove();
+
+            if(visited.contains(current)){
+                continue;
+            }
+
+            System.out.println(current);
+            visited.add(current);
+
+            for(var neighbour : adjacencyList.get(current)){
+                if(!visited.contains(neighbour)){
+                    queue.add(neighbour);
+                }
+            }
+        }
+    }
+
 }
