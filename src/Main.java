@@ -1,15 +1,14 @@
-import Heap.MaxHeap;
-import Trie.Trie;
+import Graph.Graph;
 
 public class Main {
     public static void main(String[] args) {
-        Trie trie = new Trie();
-        trie.insert("card");
-        trie.insert("care");
-        trie.insert("careful");
-        var words = trie.findWords("car");
-        System.out.println(words);
-
+        var graph = new Graph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addEdge("A","B");
+        graph.addEdge("A","C");
+        graph.print();
     }
 }
 
