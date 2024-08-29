@@ -252,4 +252,64 @@ public class Graph {
 
         stack.push(node);
     }
+
+
+//    Initialize Sets:
+//    - all: Track all nodes to ensure each is checked.
+//    - visiting: Track nodes currently in the DFS path to detect cycles.
+//    - visited: Track nodes that are fully processed to avoid redundant checks.
+//
+//    Process Nodes:
+//     - Loop through all: Ensure every node is considered for cycle detection.
+//
+//    DFS Function (hasCycle):
+//     - Mark as Visiting: Indicates the node is in the current DFS path.
+//     - Check Neighbors: Detect cycles if a neighbor is already in the current path or recursively explore unvisited neighbors.
+//     - Mark as Visited: Node processing is complete and added to visited to avoid reprocessing.
+//
+//    Return Result:
+//     - Cycle Detected: Return true if any DFS finds a cycle.
+//     - No Cycle: Return false if all nodes are processed without detecting a cycle.
+    public boolean hasCycle()
+    {
+        Set<Node> all = new HashSet<>();
+        all.addAll(nodes.values());
+
+        Set<Node> visiting = new HashSet<>();
+        Set<Node> visited = new HashSet<>();
+
+        while(!all.isEmpty()){
+            var current = all.iterator().next();
+            if(hasCycle(current, all ,visiting, visited)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean hasCycle(Node node,Set<Node> all,Set<Node> visiting,Set<Node> visited)
+    {
+        all.remove(node);
+        visiting.add(node);
+
+        for( var neighbour : adjacencyList.get(node)){
+            if(visited.contains(neighbour)){
+                continue;
+            }
+
+            if(visiting.contains(neighbour)){
+                return true;
+            }
+
+            if(hasCycle(neighbour, all ,visiting, visited)){
+                return true;
+            }
+        }
+
+        visiting.remove(node);
+        visited.add(node);
+
+        return false;
+    }
 }
